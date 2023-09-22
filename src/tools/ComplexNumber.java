@@ -52,7 +52,7 @@ public class ComplexNumber {
     public ComplexNumber div(ComplexNumber z) {
         ComplexNumber aux = mult(conj(this));
         float den = z.a * z.a + z.b * z.b;
-        return new ComplexNumber(aux.a / den, aux.b / den);
+        return new ComplexNumber(aux.a / den , aux.b / den);
     }
 
     public float mod() {
@@ -72,6 +72,12 @@ public class ComplexNumber {
     }
 
     public ComplexNumber toN(int n) {
-
+        float m = mod();
+        System.out.println("Esta es m " + m);
+        float angle = angle() * n;
+        return new ComplexNumber(
+                (float) (Math.pow(m, n) * Math.cos(angle)), 
+                (float) (Math.pow(m, n) * Math.sin(angle)));
     }
+    
 }
